@@ -9,7 +9,9 @@ const { count, step, dispatch } = props;
     return (
         <div>
             <p>Count: {count}</p>
-            <p>Step: {step}</p>
+            <label>
+                Step: <input type="number" value={step} />
+            </label>
             <button onClick={() => dispatch(decrement())}>Decrement</button>
             <button onClick={() => dispatch(increment())}>Increment</button>
         </div>
