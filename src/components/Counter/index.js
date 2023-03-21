@@ -18,17 +18,17 @@ const { count, step, increment, decrement, setStep } = props;
     );
 }
 
+/* подписка на весь стейт -->
 function mapStateToProps(state) {
     return state;
 }
- /* подписка на часть стейта -->
-function mapStateToProps(state) {
-    return {
-        count: state.count,
-        step: state.step
-    };
-}
 */
+
+ // подписка на часть стейта -->
+function mapStateToProps(state) {
+    return state.counter;
+}
+
 
 // компонент высшего порядка со стейтом -->
 // const withState = connect(mapStateToProps);
