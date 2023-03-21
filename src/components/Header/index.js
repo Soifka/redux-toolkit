@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { switchTheme } from '../../store/slices/themeSlice';
 import CONSTANTS from '../../constants';
 import cx from 'classnames';
@@ -7,7 +7,16 @@ import styles from './Header.module.scss';
 
 const { THEME } = CONSTANTS;
 
-const Header = ({theme, switchTheme, language}) => {
+const Header = (props) => {
+    /*
+    const {theme, language} = useSelector((state) => ({
+        theme: state.theme,
+        language: state.lang
+    }));
+    */
+
+    const theme = useSelector((state) => state.theme);
+
     const className = cx(styles.header, {
         [styles.darkTheme]: theme === THEME.DARK,
         [styles.lightTheme]: theme === THEME.LIGHT
@@ -30,6 +39,7 @@ const Header = ({theme, switchTheme, language}) => {
     );
 }
 
+/*
 const mStP = (state) => {
     return {
         theme: state.theme,
@@ -37,13 +47,11 @@ const mStP = (state) => {
     }
 }
 
-// function mapStateToProps(state) {
-//     return state.theme;
-// }
-
-// mapDispatchToProps -->
 const mDtP = {
     switchTheme
 }
 
 export default connect(mStP, mDtP)(Header);
+*/
+
+export default Header;
