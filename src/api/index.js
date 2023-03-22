@@ -5,9 +5,14 @@ export async function getUsers() {
     return users;
 }
 */
+
 import axios from "axios"
 
+/*
 export async function getUsers() {
-    const { data: users } = await axios.get('https://jsonplaceholder.typicode.com/users')
-    return users;
+    return await axios.get('https://jsonplaceholder.typicode.com/users');
 }
+*/
+
+// rewrite to arrow function -->
+export const getUsers = async () => axios.get('https://jsonplaceholder.typicode.com/users');
