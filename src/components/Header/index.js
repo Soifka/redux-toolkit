@@ -25,7 +25,7 @@ const Header = (props) => {
 
     return (
         <header className={className}>
-            <h1>Counter</h1>
+            <h1>My site</h1>
             <nav>
                 <ul className={styles.navList}>
                     <li>Link 1</li>
