@@ -12,7 +12,7 @@ const initialState = {
     isLoading: false,
     error: null
 }
-
+/*
 const usersSlice = createSlice({
     name: SLICE_NAME,
     initialState,
@@ -26,6 +26,22 @@ const usersSlice = createSlice({
         }
     }
 })
+*/
+
+const usersSlice = createSlice({
+    name: SLICE_NAME,
+    initialState,
+    extraReducers: (builder) => {
+        builder.addCase(getUsers.pending, (state, action) => {
+            state.isLoading = true;
+        })
+        builder.addCase(getUsers.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.users = action.payload;
+        })
+    }
+})
+
 // export createAsyncThunk result -->
 export { getUsers };
 
