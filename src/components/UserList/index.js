@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SpinnerCircular } from 'spinners-react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getUsers } from 'store/slices/usersSlice';
 
 
 const UserList = () => {
-const [users] = useState([]);
-const [isLoading] = useState(false);
-const [error] = useState(null);
+    const {users, isLoading, error} = useSelector(state => state.users);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getUsers());
+    }, [])
 
     return (
         <section>
